@@ -8,7 +8,6 @@ app.get("/", (req, res) => {
     console.log("This is backend");
     res.send("Hello from backend server!");
 });
- 
 app.post("/post",(req,res)=>{
     let varb=req.body;
     console.log("posted data", varb);
@@ -26,7 +25,7 @@ app.delete("/deleteData",(req,res)=>{
     console.log("deleting ",del);
     res.send("id:1 deleted");
 })
-// start server
+// start server//
 const server = http.createServer(app)
 
 server.listen(3000, () => {
