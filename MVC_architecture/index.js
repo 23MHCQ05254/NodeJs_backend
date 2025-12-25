@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './routes/studentRoute.js';   // after fix
+import router from './routes/studentRoute.js';  
 
 const app = express();
 app.use(express.json());
