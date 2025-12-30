@@ -15,6 +15,7 @@ const getStudentsDetails = async(req, res) => {
  
 const getStudentByfield = async (req, res) => {
     try{
+
         const roll = req.params.roll;
         // const data = await student.findOne({stdRoll: roll});
         const data = await student.findById({_id: roll});
@@ -38,5 +39,22 @@ const addStudents = async (req, res) => {
     }
 };
 
-export { getStudentsDetails, addStudents, getStudentByfield };
+const updateStudents=async (req,res)=>{
+   try{
+        const {id}=req.params;
+        const data=req.body;
+        // const updatedData=await student.findOneAndUpdate({stdRoll:id}, data ,{new:true })//filtered, neww data, truee
+        const updatedData=await student.findByIdAndUpdate({_id:id}, data ,{new:true })//filtered, neww data, truee
+ 
 
+        if(!updatedData){//student with no of the roll num
+            return res.status(404).json({message:"user not exist"});
+        }
+        res.status(200).json({student: updatedData,message:"student updated"})
+   }
+   catch(error){
+    res.status(200).json(error)
+   }
+}
+
+export { getStudentsDetails, addStudents, getStudentByfield ,updateStudents};

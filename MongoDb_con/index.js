@@ -10,7 +10,7 @@ app.use(cors());//Allows API access from other origins (like React frontend)
 
 mongoose.connect("mongodb://localhost:27017").then(() => console.log("db connected"))
 .catch((error) => console.log(error));
-
+ 
 app.use('/', studentRouter);
 
 app.get('/users', (req, res) => {
