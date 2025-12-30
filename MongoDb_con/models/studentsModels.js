@@ -7,11 +7,9 @@ const studentSchema = new mongoose.Schema({
     stdRoll : {
         type: String
     },
-    stdPhone: {
-        type : Number
+    phone:{
+        type:Number
     }
 });
 const student = mongoose.model("student", studentSchema);
 export default student;
-
-

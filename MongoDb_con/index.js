@@ -6,7 +6,7 @@ import studentRouter from './routers/studentsRouters.js';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors());//Allows API access from other origins (like React frontend)
 
 mongoose.connect("mongodb://localhost:27017").then(() => console.log("db connected"))
 .catch((error) => console.log(error));
@@ -18,5 +18,6 @@ app.get('/users', (req, res) => {
     res.send("hello this is from backend");
 })
  app.listen(7007, () => {
+
     console.log("server running at port 7007")
 });

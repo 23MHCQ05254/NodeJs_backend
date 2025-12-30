@@ -2,17 +2,17 @@ import student from "../models/studentsModels.js";
 
 const getStudentsDetails = async(req, res) => {
     try{
-        const {branch, college, cgpa} = req.query;
-        console.log(branch, college, cgpa);
+        const {stdName,stdRoll,phone} = req.query;
+        console.log(stdName);
         // const mydata = await student.find();
-        const mydata = await student.findOne({stdRoll: 34});
+        // const mydata = await student.findOne({phone: 1234});
+        const mydata = await student.find();
         res.status(200).json(mydata);
     }catch(error){
         res.status(500).json({error: error.message});
     }
 };
-
-
+ 
 const getStudentByfield = async (req, res) => {
     try{
         const roll = req.params.roll;
@@ -37,7 +37,6 @@ const addStudents = async (req, res) => {
         res.status(500).json({ error: error.message })
     }
 };
-
 
 export { getStudentsDetails, addStudents, getStudentByfield };
 
