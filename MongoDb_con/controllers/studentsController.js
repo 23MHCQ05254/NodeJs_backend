@@ -56,5 +56,22 @@ const updateStudents=async (req,res)=>{
     res.status(200).json(error)
    }
 }
+const updateStudenStatus = async (req, res) => {
+    try {
+        const result = await student.updateMany(
+            { status: false },            
+            { $set: { status: true } } 
+        );
+    
+        res.status(200).json({message: "Status updated successfully",});
 
-export { getStudentsDetails, addStudents, getStudentByfield ,updateStudents};
+    } catch (error) {
+        res.status(500).json({
+            message: "Error updating status",
+            error: error.message
+        });
+    }
+};
+
+                                                                                        
+export { getStudentsDetails, addStudents, getStudentByfield ,updateStudents,updateStudenStatus};
