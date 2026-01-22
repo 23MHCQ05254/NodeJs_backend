@@ -9,5 +9,4 @@ router.get('/get-students-byfield/:roll', getStudentByfield);
 router.put('/updateStudents/:id', updateStudents);
 router.put('/updateStudentStatus',updateStudenStatus);
 
-
 export default router;
