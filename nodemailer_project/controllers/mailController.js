@@ -12,9 +12,11 @@ const TransportInfo = nodemailer.createTransport({
     }
 });
 
+
 /* ============================
    SEND MAIL CONTROLLER
-============================ */
+============================ */  
+
 
 const SendMail = async (req, res) => {
     try {
